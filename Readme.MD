@@ -29,8 +29,6 @@ TaskHub is a task management system developed using the robustness and efficienc
 
 - Java JDK 8 or higher
 - Maven
-- Node.js
-- MySQL Database
 
 ## Configuration
 
@@ -40,10 +38,10 @@ TaskHub is a task management system developed using the robustness and efficienc
 
 ## API Endpoints
 
-- **GET `/api/tarefas`**: Get all tasks.
-- **POST `/api/tarefas`**: Create a new task.
-- **PUT `/api/tarefas/{id}`**: Edit an existing task.
-- **DELETE `/api/tarefas/{id}`**: Delete a task.
+- **GET `/api/task`**: Get all tasks.
+- **POST `/api/tasks`**: Create a new task.
+- **PUT `/api/tasks/{id}`**: Edit an existing task.
+- **DELETE `/api/tasks/{id}`**: Delete a task.
 - **POST `/api/authentication/register`**: Register a new user.
 - **POST `/api/authentication/login`**: Authenticate a user.
 
