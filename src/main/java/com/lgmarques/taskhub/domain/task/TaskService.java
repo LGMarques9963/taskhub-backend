@@ -5,6 +5,7 @@ import com.lgmarques.taskhub.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -30,6 +31,7 @@ public class TaskService {
     }
 
     public void delete(Long id) {
+        if (!taskRepository.existsById(id)) throw new RuntimeException("Task not found");
         taskRepository.deleteById(id);
     }
 
@@ -49,7 +51,7 @@ public class TaskService {
         if (taskData.status() != null) task.setStatus(taskData.status());
         if (taskData.priority() != null) task.setPriority(taskData.priority());
         if (taskData.dueDate() != null) task.setDueDate(taskData.dueDate());
-        if (taskData.updatedAt() != null) task.setUpdatedAt(taskData.updatedAt());
+        task.setUpdatedAt(LocalDateTime.now().format(TaskData.DATE_FORMATTER));
         return taskRepository.save(task);
     }
 }
